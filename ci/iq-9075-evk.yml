@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/siemens/kas/master/kas/schema-kas.json
+
+header:
+  version: 14
+  # This entry indicates to kas that this configuration file extends the
+  # base.yml configuration file present in the same repo.
+  includes:
+  - ci/base.yml 
+
+# The machine as it is written into the `local.conf` of bitbake.
+# You can create additional configuration files for each machine you
+# would like to support.
+machine: iq-9075-evk

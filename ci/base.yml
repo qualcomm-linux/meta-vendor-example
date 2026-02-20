@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/siemens/kas/master/kas/schema-kas.json
+
+# meta-vendor-example is a starting point for setting up your 
+# own meta layer to work with meta-qcom in a kas based setup.
+
+# You can read about the kas configuration file format here
+# https://kas.readthedocs.io/en/latest/userguide/project-configuration.html
+
+header:
+  version: 14
+  # This entry indicates to kas that this configuration file extends the
+  # base.yml configuration file present in meta-qcom.
+  includes:
+  - repo: meta-qcom
+    file: ci/base.yml
+    # You can view the contents of the base configuration here
+    # https://github.com/qualcomm-linux/meta-qcom/blob/master/ci/base.yml
+
+repos:
+  # this entry is required since meta-vendor-example
+  # depends on the meta-qcom layer for recipes and
+  # kas configuration files.
+  meta-qcom:
+    url: https://github.com/qualcomm-linux/meta-qcom
+    branch: master
+
+local_conf_header:
+  # Here you can include any extra configuration that
+  # needs to be included in your local.conf.
+  vendor-conf: |
+    BB_NO_NETWORK = "1"
